@@ -1,5 +1,5 @@
 import "./styles/global.css";
-import { NavBar, NavBarUser } from "./views/components";
+import ClientRouter from "./views/components/ClientRouter";
 
 export const metadata = {
   title: "VoxLlama",
@@ -14,9 +14,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <NavBarUser />
-        <NavBar />
-        {children}
+        <ClientRouter>{children}</ClientRouter>
       </body>
     </html>
   );

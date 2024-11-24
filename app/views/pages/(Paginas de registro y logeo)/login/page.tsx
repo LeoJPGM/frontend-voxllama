@@ -1,7 +1,7 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { Button } from "../../../components";
 
-export default function RegisterPage() {
+export default function LoginPage() {
   return (
     <>
       <section className="w-full h-screen bg-sky-500 flex flex-col justify-center items-center">
@@ -11,14 +11,12 @@ export default function RegisterPage() {
         </div>
 
         <form className="flex flex-col gap-4">
-          <input className="p-2 rounded-md" placeholder="Nombre" />
-          <input className="p-2 rounded-md" placeholder="Apellido" />
           <input className="p-2 rounded-md" placeholder="Email" />
           <input className="p-2 rounded-md" placeholder="Contraseña" />
 
           <Button
-            label={"Registrarse"}
-            Classes="border-2 border-lime-600 p-2 rounded-md text-white font-semibold bg-lime-600"
+            label={"Ingresar"}
+            Classes="border-2 border-amber-600 p-2 rounded-md text-white font-semibold bg-amber-600"
           />
         </form>
       </section>
