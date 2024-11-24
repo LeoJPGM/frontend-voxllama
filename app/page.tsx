@@ -11,19 +11,19 @@ export default function Home() {
             className="absolute inset-0 w-full h-full opacity-10"
             style={{ zIndex: -1 }}
           />
-          <h1 className="text-3xl text-cyan-700 font-semibold relative z-10">
+          <h1 className="text-3xl text-cyan-700 font-semibold">
             Preservando Lenguas, Preservando Culturas
           </h1>
-          <div className="flex mt-7 text-lg relative z-10">
+          <div className="flex mt-7 text-lg gap-5">
             <Button
               label={"Explorar Historias"}
               href="/views/pages/historias"
-              styleType="secondary"
+              Classes="bg-white pl-4 pr-4 pt-2 pb-2 rounded-xl text-cyan-700 font-semibold"
             />
             <Button
               label={"Ejercicios"}
               href={"/views/pages/ejercicios"}
-              additionalClasses="ml-4"
+              Classes="bg-cyan-700 pl-4 pr-4 pt-2 pb-2 rounded-xl text-white font-semibold"
             />
           </div>
         </section>
@@ -34,21 +34,25 @@ export default function Home() {
             <Button
               label={"Revisar"}
               href={""}
-              additionalClasses="border-yellow-500 bg-yellow-500"
+              Classes="text-white font-bold border-2 border-amber-400 rounded-xl pl-4 pr-4 pt-1 pb-1 bg-amber-400"
             />
           </div>
 
           <div className="w-full h-3 border-2 border-lime-500 rounded-md mt-7 bg-lime-500"></div>
         </section>
 
-        <section className="w-96 h-8 p-4 flex flex-col gap-4">
+        <section className="w-96 h-8 p-4 flex flex-col gap-6">
           <h1 className="text-3xl text-gray-500">Explora nuestras historias</h1>
           <div className="flex gap-3">
-            <Button label={"Populares"} href={""} />
+            <Button
+              label={"Populares"}
+              href={""}
+              Classes="text-white font-bold pl-4 pr-4 pt-3 pb-3 rounded-xl bg-amber-600"
+            />
             <Button
               label={"Recomendados"}
               href={""}
-              additionalClasses="border-lime-600 bg-lime-600"
+              Classes="text-white font-bold pl-4 pr-4 pt-3 pb-3 rounded-xl border-lime-600 bg-lime-600"
             />
           </div>
 
