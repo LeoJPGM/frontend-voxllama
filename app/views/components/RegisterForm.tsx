@@ -63,8 +63,9 @@ export default function RegisterForm() {
 
       <Button
         label="Registrarse"
+        type="submit"
         Classes="border-2 border-lime-600 p-2 rounded-md text-white font-semibold bg-lime-600"
-        onClick={() => handleSubmit()}
+        // onClick={() => handleSubmit()} ===> esto proboca que se ejecute 2 veces el handleSubmit
       />
     </form>
   );

@@ -7,6 +7,7 @@ interface ButtonProps {
   label: string;
   href?: string;
   Classes?: string;
+  type?: "button" | "submit" | "reset";
   onClick?: (e?: MouseEvent<HTMLButtonElement>) => void; // Cambiado a MouseEvent
 }
 
@@ -14,6 +15,7 @@ export const Button: FC<ButtonProps> = ({
   label,
   href,
   Classes = "",
+  type = "button",//por defecto 
   onClick,
 }) => {
   const router = useRouter();
@@ -27,7 +29,7 @@ export const Button: FC<ButtonProps> = ({
   };
 
   return (
-    <button className={Classes} onClick={handleClick}>
+    <button className={Classes} onClick={handleClick} type={type}>
       {label}
     </button>
   );
