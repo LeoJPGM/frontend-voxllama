@@ -3,6 +3,7 @@ import {
   loginUser,
   RegisterUserData,
   LoginUserData,
+  UserResponse,
 } from "../models/userService";
 
 export const handleUserRegistration = async (
@@ -14,22 +15,21 @@ export const handleUserRegistration = async (
     const result = await registerUser(formData);
     setSuccessMessage(result.message);
     setErrorMessage(null);
-  } catch (error: any) {
-    setErrorMessage(error?.response?.data?.message || "Error desconocido");
-    setSuccessMessage(null);
+  } catch (error) {
+    console.log(error);
   }
 };
 
 export const handleUserLogin = async (
   formData: LoginUserData,
   setErrorMessage: (message: string | null) => void,
-  setUser: (user: any) => void
+  setUser: (user: UserResponse) => void
 ): Promise<void> => {
   try {
     const result = await loginUser(formData);
     setUser(result.user);
     setErrorMessage(null);
-  } catch (error: any) {
-    setErrorMessage(error?.response?.data?.message || "Error desconocido");
+  } catch (error) {
+    console.log(error);
   }
 };
