@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
-import { Button } from "../../../components";
+import LoginForm from "../../../components/LoginForm";
 
 export default function LoginPage() {
   return (
@@ -10,15 +10,8 @@ export default function LoginPage() {
           <Icon className="text-6xl" icon="fluent-emoji:llama" />
         </div>
 
-        <form className="flex flex-col gap-4">
-          <input className="p-2 rounded-md" placeholder="Email" />
-          <input className="p-2 rounded-md" placeholder="Contraseña" />
-
-          <Button
-            label={"Ingresar"}
-            Classes="border-2 border-amber-600 p-2 rounded-md text-white font-semibold bg-amber-600"
-          />
-        </form>
+        {/* Usamos el LoginForm aquí */}
+        <LoginForm />
       </section>
     </>
   );
