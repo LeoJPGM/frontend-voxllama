@@ -1,3 +1,5 @@
+import { Button } from "../../../components";
+
 export default function NivelesPage() {
   return (
     <>
@@ -12,9 +14,11 @@ export default function NivelesPage() {
             <p className="mt-2">
               Conceptos y vocabulario fundamentales. Frases cotidianas simples
             </p>
-            <button className="border-2 rounded-xl pl-4 pr-4 pt-2 pb-2 ml-auto bg-lime-600 text-white">
-              Iniciar
-            </button>
+            <Button
+              label="Iniciar"
+              Classes="border-2 rounded-xl pl-4 pr-4 pt-2 pb-2 ml-auto bg-lime-600 text-white"
+              href="/views/pages/ejercicios"
+            />
           </div>
 
           <div className="flex flex-col border-2 rounded-lg p-2 items-start bg-gradient-to-r from-yellow-500 to-yellow-400">
@@ -23,9 +27,11 @@ export default function NivelesPage() {
               Conversaciones complejas, gramática avanzada, comprensión de
               textos largos
             </p>
-            <button className="border-2 rounded-xl pl-4 pr-4 pt-2 pb-2 ml-auto bg-yellow-500 text-white">
-              Iniciar
-            </button>
+            <Button
+              label="Iniciar"
+              Classes="border-2 rounded-xl pl-4 pr-4 pt-2 pb-2 ml-auto bg-yellow-500 text-white"
+              href="/views/pages/ejercicios"
+            />
           </div>
 
           <div className="flex flex-col border-2 rounded-lg p-2 items-start bg-gradient-to-r from-red-600 to-red-500">
@@ -33,9 +39,11 @@ export default function NivelesPage() {
             <p className="mt-2">
               Fluidez y precisión. Textos complejos, vocabulario especializado
             </p>
-            <button className="border-2 rounded-xl pl-4 pr-4 pt-2 pb-2 ml-auto bg-red-600 text-white">
-              Iniciar
-            </button>
+            <Button
+              label="Iniciar"
+              Classes="border-2 rounded-xl pl-4 pr-4 pt-2 pb-2 ml-auto bg-red-600 text-white"
+              href="/views/pages/ejercicios"
+            />
           </div>
         </div>
       </section>

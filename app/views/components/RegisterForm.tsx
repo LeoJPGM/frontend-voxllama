@@ -23,6 +23,7 @@ export default function RegisterForm() {
       const response = await axiosInstance.post("/users/register", formData);
       console.log("Registro exitoso:", response.data);
       alert("Usuario registrado con éxito");
+      window.location.href = "/";
     } catch (error) {
       console.error("Error al registrar:", error);
       alert("Hubo un error al registrar al usuario.");

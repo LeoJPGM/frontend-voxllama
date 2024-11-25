@@ -19,8 +19,12 @@ export default function LoginForm() {
     e.preventDefault();
     try {
       const response = await axiosInstance.post("/users/login", formData);
+      const { nombre } = response.data.user;
       console.log("Login exitoso:", response.data);
       alert("Login exitoso");
+
+      localStorage.setItem("nombreDeUsuario", nombre);
+      window.location.href = "/";
     } catch (error) {
       console.error("Error al iniciar sesión:", error);
       alert("Credenciales incorrectas o error en el servidor.");
@@ -46,10 +50,10 @@ export default function LoginForm() {
         onChange={handleChange}
       />
 
-      {/* El botón de envío ahora usará el onSubmit del formulario */}
       <Button
         label="Ingresar"
         Classes="border-2 border-amber-600 p-2 rounded-md text-white font-semibold bg-amber-600"
+        type="submit"
       />
     </form>
   );

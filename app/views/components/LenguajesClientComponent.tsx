@@ -35,12 +35,12 @@ const LenguajesClientComponent = () => {
   }
 
   return (
-    <div className="grid grid-cols-2 gap-8">
+    <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 p-4 lg:p-8">
       {Array.isArray(lenguajes) &&
         lenguajes.map((lenguaje) => (
           <div
             key={lenguaje.languages_Id}
-            className={`w-44 h-24 border-2 rounded-2xl flex flex-col justify-center p-2 bg-gradient-to-r ${getBackgroundClass(
+            className={`w-full h-24 lg:h-32 border-2 rounded-2xl flex flex-col justify-center p-2 lg:p-4 bg-gradient-to-r ${getBackgroundClass(
               lenguaje.languages_Nombre
             )}`}
           >
@@ -50,7 +50,7 @@ const LenguajesClientComponent = () => {
             <Button
               label={"Aprender"}
               href="/views/pages/niveles"
-              Classes="border-gray-300 border-2 rounded-xl p-1 mt-4 font-bold text-gray-400 bg-white hover:bg-gray-200"
+              Classes="border-gray-300 border-2 rounded-xl p-1 lg:p-2 mt-4 font-bold text-gray-400 bg-white hover:bg-gray-200"
             />
           </div>
         ))}

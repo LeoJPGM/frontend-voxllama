@@ -1,4 +1,6 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
+import Accordion from "../../../components/Accordion";
+import HorizontalScroll from "../../../components/HorizontalScroll";
 
 export default function EjerciciosPage() {
   return (
@@ -7,19 +9,22 @@ export default function EjerciciosPage() {
         <div className="border-b-2 p-4">
           <h1 className="text-2xl font-bold">Mis lenguajes</h1>
 
-          <div className="flex pt-6 gap-4">
-            <div className="w-32 h-24 border-2 rounded-2xl flex flex-col justify-center items-center bg-blue-500">
-              <h2 className="font-medium">Ainu</h2>
+          <HorizontalScroll>
+            <div className="flex gap-4">
+              {[
+                { name: "Ainu", color: "bg-blue-500" },
+                { name: "Nivaclé", color: "bg-red-500" },
+                { name: "Cornish", color: "bg-purple-500" },
+              ].map((language) => (
+                <div
+                  key={language.name}
+                  className={`w-32 h-16 border-2 rounded-2xl flex flex-col justify-center items-center ${language.color} shadow-lg transform transition-transform hover:scale-105`}
+                >
+                  <h2 className="font-medium text-white">{language.name}</h2>
+                </div>
+              ))}
             </div>
-
-            <div className="w-32 h-24 border-2 rounded-2xl flex flex-col justify-center items-center bg-red-500">
-              <h2 className="font-medium">Nivaclé</h2>
-            </div>
-
-            <div className="w-32 h-24 border-2 rounded-2xl flex flex-col justify-center items-center bg-purple-500">
-              <h2 className="font-medium">Cornish</h2>
-            </div>
-          </div>
+          </HorizontalScroll>
         </div>
 
         <div className="flex flex-col gap-3 p-4">
@@ -30,76 +35,55 @@ export default function EjerciciosPage() {
         </div>
       </section>
 
-      <section className="border-2">
-        <div className="border-b-2">
-          <div className="flex justify-between text-xl p-4">
-            <h2 className="font-semibold">Introducción</h2>
+      <section className="border-t-2">
+        <Accordion title="Introducción">
+          <div className="flex items-center border-2 rounded-md p-2 gap-4 bg-blue-500">
             <Icon
-              className="text-4xl text-gray-400"
-              icon="tabler:arrow-badge-down"
+              className="text-4xl text-white"
+              icon="tabler:campfire-filled"
             />
-          </div>
-
-          <div className="flex flex-col p-4 gap-4 text-white">
-            <div className="flex items-center border-2 rounded-md p-2 gap-4 bg-blue-500">
-              <Icon
-                className="text-4xl text-white"
-                icon="tabler:campfire-filled"
-              />
-              <div className="flex flex-col">
-                <h2>Lección</h2>
-                <p className="font-medium">Primeros Pasos</p>
-              </div>
-            </div>
-
-            <div className="flex items-center border-2 rounded-md p-2 gap-4 bg-purple-500">
-              <Icon className="text-4xl" icon="tabler:bubble-filled" />
-              <div className="flex flex-col">
-                <h2>Lección</h2>
-                <p className="font-medium">Saludos y Presentaciones</p>
-              </div>
+            <div className="flex flex-col">
+              <h2>Lección</h2>
+              <p className="font-medium">Primeros Pasos</p>
             </div>
           </div>
-        </div>
 
-        <div className="border-b-2">
-          <div className="flex justify-between text-xl p-4">
-            <h2 className="font-semibold">Vocabulario Básico</h2>
-            <Icon
-              className="text-4xl text-gray-400"
-              icon="tabler:arrow-badge-down"
-            />
-          </div>
-
-          <div className="flex flex-col p-4 gap-4 text-white">
-            <div className="flex items-center border-2 rounded-md p-2 gap-4 bg-orange-500">
-              <Icon className="text-4xl" icon="tabler:puzzle-filled" />
-              <div className="flex flex-col">
-                <h2>Lección</h2>
-                <p className="font-medium">Cosas Cotidianas</p>
-              </div>
-            </div>
-
-            <div className="flex items-center border-2 rounded-md p-2 gap-4 bg-pink-500">
-              <Icon className="text-4xl" icon="tabler:users-group" />
-              <div className="flex flex-col">
-                <h2>Lección</h2>
-                <p className="font-medium">Familia y Amigos</p>
-              </div>
-            </div>
-
-            <div className="flex items-center border-2 rounded-md p-2 gap-4 bg-teal-500">
-              <Icon className="text-4xl" icon="tabler:cherry-filled" />
-              <div className="flex flex-col">
-                <h2>Lección</h2>
-                <p className="font-medium">Comida y Bebida</p>
-              </div>
+          <div className="flex items-center border-2 rounded-md p-2 gap-4 bg-purple-500">
+            <Icon className="text-4xl" icon="tabler:bubble-filled" />
+            <div className="flex flex-col">
+              <h2>Lección</h2>
+              <p className="font-medium">Saludos y Presentaciones</p>
             </div>
           </div>
-        </div>
+        </Accordion>
 
-        <div className="h-32"></div>
+        <Accordion title="Vocabulario Básico">
+          <div className="flex items-center border-2 rounded-md p-2 gap-4 bg-orange-500">
+            <Icon className="text-4xl" icon="tabler:puzzle-filled" />
+            <div className="flex flex-col">
+              <h2>Lección</h2>
+              <p className="font-medium">Cosas Cotidianas</p>
+            </div>
+          </div>
+
+          <div className="flex items-center border-2 rounded-md p-2 gap-4 bg-pink-500">
+            <Icon className="text-4xl" icon="tabler:users-group" />
+            <div className="flex flex-col">
+              <h2>Lección</h2>
+              <p className="font-medium">Familia y Amigos</p>
+            </div>
+          </div>
+
+          <div className="flex items-center border-2 rounded-md p-2 gap-4 bg-teal-500">
+            <Icon className="text-4xl" icon="tabler:cherry-filled" />
+            <div className="flex flex-col">
+              <h2>Lección</h2>
+              <p className="font-medium">Comida y Bebida</p>
+            </div>
+          </div>
+        </Accordion>
       </section>
+      <div className="h-20"></div>
     </div>
   );
 }
