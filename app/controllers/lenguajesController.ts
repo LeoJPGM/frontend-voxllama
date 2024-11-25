@@ -1,11 +1,16 @@
 import { getLenguajes, lenguajesData } from "../models/lenguajesService";
 
-export const fecthLenguajesData = async () => {
+interface ApiResponse {
+  success: boolean;
+  languages: lenguajesData[];
+}
+
+export const fetchLenguajesData = async (): Promise<lenguajesData[]> => {
   try {
-    const lenguajes: lenguajesData[] = await getLenguajes();
-    return lenguajes;
+    const response: ApiResponse = await getLenguajes();
+    return response.languages;
   } catch (error) {
-    console.error("Error al obtener la data", error);
+    console.error("Error fetching data:", error);
     throw error;
   }
 };

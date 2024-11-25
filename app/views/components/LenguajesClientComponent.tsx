@@ -1,10 +1,9 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-
-import { Button } from "./Button";
-import { fecthLenguajesData } from "../../controllers/lenguajesController";
+import { fetchLenguajesData } from "../../controllers/lenguajesController";
 import { lenguajesData } from "../../models/lenguajesService";
+import { Button } from "./Button";
 
 const LenguajesClientComponent = () => {
   const [lenguajes, setLenguajes] = useState<lenguajesData[]>([]);
@@ -14,10 +13,11 @@ const LenguajesClientComponent = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await fecthLenguajesData();
+        const data = await fetchLenguajesData();
         setLenguajes(data);
         setLoading(false);
       } catch (err) {
+        console.error("Error fetching data:", err);
         setError("Error fetching data");
         setLoading(false);
       }
@@ -36,23 +36,24 @@ const LenguajesClientComponent = () => {
 
   return (
     <div className="grid grid-cols-2 gap-8">
-      {lenguajes.map((lenguaje) => (
-        <div
-          key={lenguaje.nombre}
-          className={`w-44 h-24 border-2 rounded-2xl flex flex-col justify-center p-2 bg-gradient-to-r ${getBackgroundClass(
-            lenguaje.nombre
-          )}`}
-        >
-          <span className="text-center font-semibold text-white">
-            {lenguaje.nombre}
-          </span>
-          <Button
-            label={"Aprender"}
-            href="/views/pages/niveles"
-            Classes="border-red-500 border-2 rounded-xl p-1 mt-4 font-bold text-red-400 bg-white hover:bg-red-100"
-          />
-        </div>
-      ))}
+      {Array.isArray(lenguajes) &&
+        lenguajes.map((lenguaje) => (
+          <div
+            key={lenguaje.languages_Id}
+            className={`w-44 h-24 border-2 rounded-2xl flex flex-col justify-center p-2 bg-gradient-to-r ${getBackgroundClass(
+              lenguaje.languages_Nombre
+            )}`}
+          >
+            <span className="text-center font-semibold text-white">
+              {lenguaje.languages_Nombre}
+            </span>
+            <Button
+              label={"Aprender"}
+              href="/views/pages/niveles"
+              Classes="border-gray-300 border-2 rounded-xl p-1 mt-4 font-bold text-gray-400 bg-white hover:bg-gray-200"
+            />
+          </div>
+        ))}
     </div>
   );
 };

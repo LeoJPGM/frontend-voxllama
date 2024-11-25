@@ -1,9 +1,10 @@
 import axiosInstance from "../utils/axiosConfig";
 
 export interface lenguajesData {
-  nombre: string;
-  descripcion: string;
-  peligro: string;
+  languages_Id: number;
+  languages_Nombre: string;
+  languages_Descripcion: string;
+  languages_threat_level: string;
 }
 
 export const getLenguajes = async () => {
